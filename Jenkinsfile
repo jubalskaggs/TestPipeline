@@ -8,7 +8,14 @@ node {
 		if (isUnix()) {
 			sh "'/opt/maven/bin/mvn' -Dmaven.test.failure.ignore clean"
 		}
-  	 } 
+  	 }
+
+	stage('Test') {
+		if (isUnix()) {
+			sh "'/opt/maven/bin/mvn' test"
+		}
+	}
+ 
    	stage('Package') {
       		// Run the maven build
       		if (isUnix()) {
