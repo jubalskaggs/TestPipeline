@@ -23,4 +23,12 @@ node {
       		} 
    	}
    //}
+
+	// target/surefire-reports
+	post {
+		always {
+			archive 'target/status-of-fisheries.war'
+			junit 'target/surefire-reports/**/*.xml'
+		}
+	}	
 }
