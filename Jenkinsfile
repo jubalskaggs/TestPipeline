@@ -3,7 +3,7 @@ node {
    stage('Preparation') { // for display purposes
     checkout scm: [$class: 'MercurialSCM', source: 'https://vcontext.net/hg/nmfs/status-of-fisheries', clean: true, credentialsId: 'jubalmercurial'], poll: false
    }
-   stages {
+   //stages {
    	stage('Clean') {
 		if (isUnix()) {
 			sh "'/opt/maven/bin/mvn' -Dmaven.test.failure.ignore clean"
@@ -15,5 +15,5 @@ node {
          		sh "'/opt/maven/bin/mvn' -Dmaven.test.failure.ignore package"
       		} 
    	}
-   }
+   //}
 }
